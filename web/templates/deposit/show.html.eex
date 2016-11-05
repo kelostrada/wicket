@@ -1,0 +1,43 @@
+<h2>Show deposit</h2>
+
+<ul>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @deposit.address %>
+  </li>
+
+  <li>
+    <strong>Tx:</strong>
+    <%= @deposit.tx %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @deposit.amount %>
+  </li>
+
+  <li>
+    <strong>Confirmations:</strong>
+    <%= @deposit.confirmations %>
+  </li>
+
+  <li>
+    <strong>Timereceived:</strong>
+    <%= @deposit.timereceived %>
+  </li>
+
+  <li>
+    <strong>Pushed:</strong>
+    <%= @deposit.pushed %>
+  </li>
+
+  <li>
+    <strong>Pushed conf:</strong>
+    <%= @deposit.pushed_conf %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: deposit_path(@conn, :edit, @deposit) %>
+<%= link "Back", to: deposit_path(@conn, :index) %>

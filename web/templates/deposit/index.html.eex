@@ -1,0 +1,38 @@
+<h2>Listing deposits</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Tx</th>
+      <th>Amount</th>
+      <th>Confirmations</th>
+      <th>Timereceived</th>
+      <th>Pushed</th>
+      <th>Pushed conf</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for deposit <- @deposits do %>
+    <tr>
+      <td><%= deposit.address %></td>
+      <td><%= deposit.tx %></td>
+      <td><%= deposit.amount %></td>
+      <td><%= deposit.confirmations %></td>
+      <td><%= deposit.timereceived %></td>
+      <td><%= deposit.pushed %></td>
+      <td><%= deposit.pushed_conf %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: deposit_path(@conn, :show, deposit), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: deposit_path(@conn, :edit, deposit), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: deposit_path(@conn, :delete, deposit), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New deposit", to: deposit_path(@conn, :new) %>
