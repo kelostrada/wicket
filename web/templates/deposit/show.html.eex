@@ -37,6 +37,11 @@
     <%= @deposit.pushed_conf %>
   </li>
 
+  <li>
+    <strong>Connector:</strong>
+    <%= @deposit.connector %>
+  </li>
+
 </ul>
 
 <%= link "Edit", to: deposit_path(@conn, :edit, @deposit) %>

@@ -17,6 +17,8 @@ defmodule Wicket.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/deposits", DepositController
+    resources "/withdrawals", WithdrawalController
   end
 
   # Other scopes may use custom stacks.

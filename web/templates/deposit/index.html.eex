@@ -10,6 +10,7 @@
       <th>Timereceived</th>
       <th>Pushed</th>
       <th>Pushed conf</th>
+      <th>Connector</th>
 
       <th></th>
     </tr>
@@ -24,6 +25,7 @@
       <td><%= deposit.timereceived %></td>
       <td><%= deposit.pushed %></td>
       <td><%= deposit.pushed_conf %></td>
+      <td><%= deposit.connector %></td>
 
       <td class="text-right">
         <%= link "Show", to: deposit_path(@conn, :show, deposit), class: "btn btn-default btn-xs" %>

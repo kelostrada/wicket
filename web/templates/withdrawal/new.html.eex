@@ -1,0 +1,6 @@
+<h2>New withdrawal</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: withdrawal_path(@conn, :create) %>
+
+<%= link "Back", to: withdrawal_path(@conn, :index) %>

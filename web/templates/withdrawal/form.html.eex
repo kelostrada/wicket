@@ -6,6 +6,12 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :external_id, class: "control-label" %>
+    <%= text_input f, :external_id, class: "form-control" %>
+    <%= error_tag f, :external_id %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :address, class: "control-label" %>
     <%= text_input f, :address, class: "form-control" %>
     <%= error_tag f, :address %>
@@ -21,6 +27,12 @@
     <%= label f, :amount, class: "control-label" %>
     <%= number_input f, :amount, step: "any", class: "form-control" %>
     <%= error_tag f, :amount %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fee, class: "control-label" %>
+    <%= number_input f, :fee, step: "any", class: "form-control" %>
+    <%= error_tag f, :fee %>
   </div>
 
   <div class="form-group">

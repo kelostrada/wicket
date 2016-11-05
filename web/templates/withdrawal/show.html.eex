@@ -1,0 +1,58 @@
+<h2>Show withdrawal</h2>
+
+<ul>
+
+  <li>
+    <strong>External:</strong>
+    <%= @withdrawal.external_id %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @withdrawal.address %>
+  </li>
+
+  <li>
+    <strong>Tx:</strong>
+    <%= @withdrawal.tx %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @withdrawal.amount %>
+  </li>
+
+  <li>
+    <strong>Fee:</strong>
+    <%= @withdrawal.fee %>
+  </li>
+
+  <li>
+    <strong>Confirmations:</strong>
+    <%= @withdrawal.confirmations %>
+  </li>
+
+  <li>
+    <strong>Timereceived:</strong>
+    <%= @withdrawal.timereceived %>
+  </li>
+
+  <li>
+    <strong>Pushed:</strong>
+    <%= @withdrawal.pushed %>
+  </li>
+
+  <li>
+    <strong>Pushed conf:</strong>
+    <%= @withdrawal.pushed_conf %>
+  </li>
+
+  <li>
+    <strong>Connector:</strong>
+    <%= @withdrawal.connector %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: withdrawal_path(@conn, :edit, @withdrawal) %>
+<%= link "Back", to: withdrawal_path(@conn, :index) %>

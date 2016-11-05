@@ -1,0 +1,44 @@
+<h2>Listing withdrawals</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>External</th>
+      <th>Address</th>
+      <th>Tx</th>
+      <th>Amount</th>
+      <th>Fee</th>
+      <th>Confirmations</th>
+      <th>Timereceived</th>
+      <th>Pushed</th>
+      <th>Pushed conf</th>
+      <th>Connector</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for withdrawal <- @withdrawals do %>
+    <tr>
+      <td><%= withdrawal.external_id %></td>
+      <td><%= withdrawal.address %></td>
+      <td><%= withdrawal.tx %></td>
+      <td><%= withdrawal.amount %></td>
+      <td><%= withdrawal.fee %></td>
+      <td><%= withdrawal.confirmations %></td>
+      <td><%= withdrawal.timereceived %></td>
+      <td><%= withdrawal.pushed %></td>
+      <td><%= withdrawal.pushed_conf %></td>
+      <td><%= withdrawal.connector %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: withdrawal_path(@conn, :show, withdrawal), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: withdrawal_path(@conn, :edit, withdrawal), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: withdrawal_path(@conn, :delete, withdrawal), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New withdrawal", to: withdrawal_path(@conn, :new) %>

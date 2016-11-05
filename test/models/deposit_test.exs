@@ -3,7 +3,7 @@ defmodule Wicket.DepositTest do
 
   alias Wicket.Deposit
 
-  @valid_attrs %{address: "some content", amount: "120.5", confirmations: 42, pushed: true, pushed_conf: 42, timereceived: 42, tx: "some content"}
+  @valid_attrs %{address: "some content", amount: "120.5", confirmations: 42, connector: "some content", pushed: true, pushed_conf: 42, timereceived: 42, tx: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

@@ -1,5 +1,4 @@
 defmodule Wicket.ConnectorSupervisor do
-
   use Supervisor
   require Logger
 
@@ -11,6 +10,6 @@ defmodule Wicket.ConnectorSupervisor do
      |> supervise(strategy: :one_for_one)
   end
 
-  def prepare_connector(name), do: worker(Wicket.Connector, [name])
+  defp prepare_connector(name), do: worker(Wicket.Connector, [name])
 
 end
