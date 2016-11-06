@@ -14,8 +14,9 @@ defmodule Wicket.Push do
       transaction
       |> create_message
       |> Poison.encode!
-      
+
     HTTPoison.post(url, message, ["Content-Type": "application/json"])
+    |> handle_response(transaction)
   end
   def push_transaction(transaction, _url) do
     Logger.debug "Ignored transaction #{inspect transaction}"
@@ -41,6 +42,17 @@ defmodule Wicket.Push do
       timereceived: withdrawal.timereceived,
       fee: withdrawal.fee
     }
+  end
+
+  defp handle_response({:ok, %HTTPoison.Response{body: body}}, transaction) do
+    case Poison.decode!(body) do
+      %{"result" => "accept"} -> {true, transaction}
+      _ -> {false, transaction}
+    end
+  end
+  defp handle_response({:error, error}, _transaction) do
+    Logger.error "Error during HTTP request: #{inspect error}"
+    nil
   end
 
 end

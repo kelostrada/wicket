@@ -1,6 +1,5 @@
 defmodule Wicket.Database.TransactionsService do
   alias Wicket.{Repo, Deposit, Withdrawal}
-  import Ecto.Query
   require Logger
 
   def save_transactions(transactions, connector) do
@@ -35,5 +34,17 @@ defmodule Wicket.Database.TransactionsService do
   end
   def save_transaction(_transaction, _connector), do: nil
 
+  def update_push_states(transactions) do
+    transactions
+    |> Enum.map(&update_push_state/1)
+    |> Enum.reject(& &1 == nil)
+  end
+
+  def update_push_state(nil), do: nil
+  def update_push_state({pushed, transaction}) do
+    changes = %{pushed: pushed, pushed_conf: transaction.confirmations}
+    transaction.__struct__.changeset(transaction, changes)
+    |> Repo.update
+  end
 
 end

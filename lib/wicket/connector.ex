@@ -20,9 +20,8 @@ defmodule Wicket.Connector do
     state
     |> listtransactions
     |> TransactionsService.save_transactions(state.name)
-    |> IO.inspect
     |> Push.push_transactions(state.url)
-    |> IO.inspect
+    |> TransactionsService.update_push_states
 
     {:noreply, state}
   end

@@ -31,7 +31,7 @@ config :wicket, :bitcoind,
   user: "bitcoinrpc",
   password: "changeme",
   account: "api",
-  interval: 5000,
+  interval: 30000,
   fetched_transactions: 100,
   webhook_url: "http://localhost:4040/api/receive"
 
