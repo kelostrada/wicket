@@ -21,7 +21,7 @@ defmodule Wicket.Connector do
     |> listtransactions
     |> TransactionsService.save_transactions(state.name)
     |> IO.inspect
-    |> Push.transactions(state.name)
+    |> Push.push_transactions(state.url)
     |> IO.inspect
 
     {:noreply, state}
@@ -42,7 +42,7 @@ defmodule Wicket.Connector do
     {:ok, pid} = Gold.start_link(config)
 
     %{name: name, host: host, port: port, user: user, password: password, account: account,
-      interval: interval, fetched_transactions: fetched, webhook_url: url, gold: pid}
+      interval: interval, fetched_transactions: fetched, webhook_url: url, url: url, gold: pid}
   end
 
   defp listtransactions(state) do

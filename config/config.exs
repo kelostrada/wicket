@@ -33,7 +33,7 @@ config :wicket, :bitcoind,
   account: "api",
   interval: 5000,
   fetched_transactions: 100,
-  webhook_url: "http://localhost:4000"
+  webhook_url: "http://localhost:4040/api/receive"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

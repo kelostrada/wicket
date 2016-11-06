@@ -19,7 +19,7 @@ defmodule Wicket.Mixfile do
   def application do
     [mod: {Wicket, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :gold]]
+                    :phoenix_ecto, :postgrex, :gold, :httpoison]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,6 +38,7 @@ defmodule Wicket.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
+     {:httpoison, "~> 0.10"},
      {:gold, git: "https://github.com/kelostrada/gold.git", branch: "master"},
      ]
   end
