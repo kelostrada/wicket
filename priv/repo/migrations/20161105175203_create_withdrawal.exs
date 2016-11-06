@@ -5,7 +5,7 @@ defmodule Wicket.Repo.Migrations.CreateWithdrawal do
     create table(:withdrawals) do
       add :external_id, :string, null: false
       add :address, :string, null: false
-      add :tx, :string
+      add :txid, :string
       add :amount, :decimal, null: false
       add :fee, :decimal
       add :confirmations, :integer
@@ -17,5 +17,6 @@ defmodule Wicket.Repo.Migrations.CreateWithdrawal do
       timestamps()
     end
 
+    create unique_index(:withdrawals, [:external_id, :connector], name: :external_id_connector)
   end
 end

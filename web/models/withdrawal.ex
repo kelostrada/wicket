@@ -4,7 +4,7 @@ defmodule Wicket.Withdrawal do
   schema "withdrawals" do
     field :external_id, :string
     field :address, :string
-    field :tx, :string
+    field :txid, :string
     field :amount, :decimal
     field :fee, :decimal
     field :confirmations, :integer
@@ -21,7 +21,8 @@ defmodule Wicket.Withdrawal do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:external_id, :address, :tx, :amount, :fee, :confirmations, :timereceived, :pushed, :pushed_conf, :connector])
-    |> validate_required([:external_id, :address, :tx, :connector])
+    |> cast(params, [:external_id, :address, :txid, :amount, :fee, :confirmations, :timereceived, :pushed, :pushed_conf, :connector])
+    |> validate_required([:external_id, :address, :txid, :connector])
+    |> unique_constraint(:external_id_connector)
   end
 end

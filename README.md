@@ -11,9 +11,9 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 # Some steps
 
-`mix phoenix.gen.html Deposit deposits address:string tx:string amount:decimal confirmations:integer timereceived:integer pushed:boolean pushed_conf:integer connector:string`
+`mix phoenix.gen.html Deposit deposits address:string txid:string amount:decimal confirmations:integer timereceived:integer pushed:boolean pushed_conf:integer connector:string`
 
-`mix phoenix.gen.html Withdrawal withdrawals external_id:string address:string tx:string amount:decimal fee:decimal confirmations:integer timereceived:integer pushed:boolean pushed_conf:integer connector:string`
+`mix phoenix.gen.html Withdrawal withdrawals external_id:string address:string txid:string amount:decimal fee:decimal confirmations:integer timereceived:integer pushed:boolean pushed_conf:integer connector:string`
 
 # O czym mówić
 

@@ -2,7 +2,7 @@ defmodule Wicket.WithdrawalControllerTest do
   use Wicket.ConnCase
 
   alias Wicket.Withdrawal
-  @valid_attrs %{address: "some content", amount: "120.5", confirmations: 42, connector: "some content", external_id: "some content", fee: "120.5", pushed: true, pushed_conf: 42, timereceived: 42, tx: "some content"}
+  @valid_attrs %{address: "some content", amount: "120.5", confirmations: 42, connector: "some content", external_id: "some content", fee: "120.5", pushed: true, pushed_conf: 42, timereceived: 42, txid: "some content"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do

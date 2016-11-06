@@ -3,7 +3,7 @@ defmodule Wicket.Deposit do
 
   schema "deposits" do
     field :address, :string
-    field :tx, :string
+    field :txid, :string
     field :amount, :decimal
     field :confirmations, :integer
     field :timereceived, :integer
@@ -19,7 +19,8 @@ defmodule Wicket.Deposit do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:address, :tx, :amount, :confirmations, :timereceived, :pushed, :pushed_conf, :connector])
-    |> validate_required([:address, :tx, :amount, :confirmations, :timereceived, :connector])
+    |> cast(params, [:address, :txid, :amount, :confirmations, :timereceived, :pushed, :pushed_conf, :connector])
+    |> validate_required([:address, :txid, :amount, :confirmations, :timereceived, :connector])
+    |> unique_constraint(:address_txid_connector)
   end
 end

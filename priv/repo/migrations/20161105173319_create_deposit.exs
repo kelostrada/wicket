@@ -4,7 +4,7 @@ defmodule Wicket.Repo.Migrations.CreateDeposit do
   def change do
     create table(:deposits) do
       add :address, :string, null: false
-      add :tx, :string, null: false
+      add :txid, :string, null: false
       add :amount, :decimal, null: false
       add :confirmations, :integer, default: 0, null: false
       add :timereceived, :integer, null: false
@@ -15,5 +15,6 @@ defmodule Wicket.Repo.Migrations.CreateDeposit do
       timestamps()
     end
 
+    create unique_index(:deposits, [:address, :txid, :connector], name: :address_txid_connector)
   end
 end

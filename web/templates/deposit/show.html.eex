@@ -8,8 +8,8 @@
   </li>
 
   <li>
-    <strong>Tx:</strong>
-    <%= @deposit.tx %>
+    <strong>Txid:</strong>
+    <%= @deposit.txid %>
   </li>
 
   <li>

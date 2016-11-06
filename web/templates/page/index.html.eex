@@ -8,7 +8,10 @@
     <h4>Menu</h4>
     <ul>
       <li>
-        <a href="/connections">Connections</a>
+        <a href="/deposits">Deposits</a>
+      </li>
+      <li>
+        <a href="/withdrawals">Withdrawals</a>
       </li>
     </ul>
   </div>

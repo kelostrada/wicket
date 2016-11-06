@@ -5,7 +5,7 @@
     <tr>
       <th>External</th>
       <th>Address</th>
-      <th>Tx</th>
+      <th>Txid</th>
       <th>Amount</th>
       <th>Fee</th>
       <th>Confirmations</th>
@@ -22,7 +22,7 @@
     <tr>
       <td><%= withdrawal.external_id %></td>
       <td><%= withdrawal.address %></td>
-      <td><%= withdrawal.tx %></td>
+      <td><%= withdrawal.txid %></td>
       <td><%= withdrawal.amount %></td>
       <td><%= withdrawal.fee %></td>
       <td><%= withdrawal.confirmations %></td>

@@ -2,6 +2,8 @@ defmodule Wicket.Connector do
 
   use GenServer
   require Logger
+  alias Wicket.Database.TransactionsService
+  alias Wicket.Push
 
   def start_link(name) when is_atom(name),
     do: GenServer.start_link(__MODULE__, name, name: name)
@@ -15,7 +17,12 @@ defmodule Wicket.Connector do
   def handle_info(:loop, state) do
     Process.send_after(self, :loop, state.interval)
 
-    IO.inspect Gold.listtransactions(state.gold, state.account, state.fetched_transactions)
+    state
+    |> listtransactions
+    |> TransactionsService.save_transactions(state.name)
+    |> IO.inspect
+    |> Push.transactions(state.name)
+    |> IO.inspect
 
     {:noreply, state}
   end
@@ -36,6 +43,15 @@ defmodule Wicket.Connector do
 
     %{name: name, host: host, port: port, user: user, password: password, account: account,
       interval: interval, fetched_transactions: fetched, webhook_url: url, gold: pid}
+  end
+
+  defp listtransactions(state) do
+    case Gold.listtransactions(state.gold, state.account, state.fetched_transactions) do
+      {:ok, transactions} -> transactions
+      {:error, error} ->
+        Logger.error("Connection error: #{error}")
+        []
+    end
   end
 
 end

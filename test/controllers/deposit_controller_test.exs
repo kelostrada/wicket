@@ -2,7 +2,7 @@ defmodule Wicket.DepositControllerTest do
   use Wicket.ConnCase
 
   alias Wicket.Deposit
-  @valid_attrs %{address: "some content", amount: "120.5", confirmations: 42, connector: "some content", pushed: true, pushed_conf: 42, timereceived: 42, tx: "some content"}
+  @valid_attrs %{address: "some content", amount: "120.5", confirmations: 42, connector: "some content", pushed: true, pushed_conf: 42, timereceived: 42, txid: "some content"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
